@@ -8,6 +8,12 @@ from accounts.models import Employer
 
 # Create your views here.
 
+def vacancy_board_stud(request):
+    vacancies = Vacancy.objects.all()
+
+    context = {'vacancies': vacancies}
+    return render(request, 'vboard/vacancy_board_stud.html', context)
+
 
 def vacancy_board_emp(request):
     owner_id = Employer.objects.filter(user=request.user.pk).first()
