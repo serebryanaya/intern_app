@@ -15,8 +15,8 @@
     <span><a href="{% url 'logout' %}">Выйти</a></span>
 {% else %}
     <p><a href="{% url 'register' %}">Зарегистрируйся, как студент, работодатель или университет</a></p>
-    <p><a href="{% url 'register_employer' %}">Зарегистрируйся, работодатель</a></p>
-    <p><a href="{% url 'register_university' %}">Зарегистрируйся, университет</a></p>
+  <!--  <p><a href="{% url 'register_employer' %}">Зарегистрируйся, работодатель</a></p>
+    <p><a href="{% url 'register_university' %}">Зарегистрируйся, университет</a></p> -->
     <p><a href="{% url 'login' %}">Войти</a></p>
 {% endif %}
 {% endblock %}
