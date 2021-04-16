@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<button><a href="{% url 'employer_page' %}">Назад</a></button>
+
+{% for v in vacancies %}
+
+<div>
+    <h2>{{ v.title }}</h2>
+    <h3>{{ v.owner.name_org }}</h3>
+    <p>{{ v.content }}</p>
+    <h4>Навыки:</h3>
+        {% for sk in v.skills.all %}
+            <p>{{ sk.name }}</p>
+        {% endfor %}
+    
+</div>
+
+{% endfor %}
+
+{% endblock %}

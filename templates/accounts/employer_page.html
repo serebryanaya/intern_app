@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>ЛК РАБОТОДАТЕЛЬ!!!</h3>
+<button><a href="{% url 'home' %}">Домашняя страница</a></button>
+<button><a href="{% url 'logout' %}">Выйти</a></button>
+<button><a href="{% url 'vacancy_board_emp' %}">Мои стажировки</a></button>
+<button><a href="{% url 'create_v' %}">Добавить стажировку</a></button>
+
+{% endblock %}

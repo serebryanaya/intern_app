@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} Вход :: UpGrade {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-4 col-sm-6">
+        <div class="form">
+            <p class="form-header text-left">Войти в систему</p>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <p class="form-text"> Логин </p>
+                <input type="text" class="form-control input-sm" name="username" placeholder="Ваш username">
+                <p class="form-text"> Пароль </p>
+                <input type="password" class="form-control input-sm" name="password" placeholder="Ваш пароль">
+                <button type="submit" class="btn col-lg-6 d-md-block btn-primary btn-md btn-block form-btn">Войти</button>
+            </form>
+            {% for message in messages %}
+                <p id="messages">{{message}}</p>
+            {% endfor %}
+            <p class="register_btn">Нет аккаунта? <a class="register_btn" href="{% url 'home' %}" >Зарегистрируй!</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<button><a href="{% url 'student_page' %}">Назад</a></button>
+<div>
+    <p>{{ student.initials }}</p>
+    <p>{{ student.phone }}</p>
+    {% for sk in student.my_skill.all %}
+        <p>{{ sk.name}}</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'stud_update' student.pk %}">Изменить</a>
+
+{% endblock %}

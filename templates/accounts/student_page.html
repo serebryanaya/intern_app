@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>ЛК СТУДЕНТ!!!</h3>
+<span><a href="{% url 'home' %}">Домашняя страница</a></span>
+<span><a href="{% url 'logout' %}">Выйти</a></span>
+
+<p>Личные данные</p>
+
+{% for s in student %}
+
+<a href="{% url 'stud_detail' s.id %}">Личные данные</a>
+<span>Логин: {{ s.name }}</span>
+<span>ФИО: {{ s.initials }}</span>
+<span>Телефон: {{ s.phone }}</span>
+<span>О себе: {{ s.about }}</span>
+<span>Скиллы:</span>
+    {% for sk in s.my_skill.all %}
+        {{ sk.name }}
+    {% endfor %}
+{% endfor %}
+
+
+{% endblock %}

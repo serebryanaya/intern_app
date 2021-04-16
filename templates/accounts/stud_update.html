@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<button><a href="{% url 'student_page' %}">Назад</a></button>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ student.name }}
+
+    {{ form.initials }}
+    {{ form.my_skill }}
+    {{ form.phone }}
+    {{ form.about }}
+
+    <button type="submit">Обновить</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title%} Регистрация :: UpGrade {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<div class="col-lg-4 col-sm-6">
+    <div class="form">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p class="form-header text-left">Регистрация в системе</p>
+            <div class="radio_btn">
+                <input type="radio" id="stud" name="staff" value="student" checked>
+                <label for="stud">Студент</label>
+                <input type="radio" id="emp" name="staff" value="employer">
+                <label for="emp">Работодатель</label>
+                <input type="radio" id="uni" name="staff" value="university">
+                <label for="uni">Университет</label>
+            </div>
+            <p class="form-text">{{form.username.label}}</p>
+            <p>{{form.username}}</p>
+    
+            <p class="form-text">{{form.email.label}}</p>
+            <p>{{form.email}}</p>
+            
+            <p class="form-text">{{form.password1.label}}</p>
+            <p>{{form.password1}}</p>
+            
+            <p class="form-text">{{form.password2.label}}</p>
+            <p>{{form.password2}}</p>
+            <input type="submit" value="Зарегистрировать">
+            {{form.errors}}
+            <p class="register_btn">Уже есть аккаунт? <a class="register_btn" href="{% url 'login' %}">Залогинься!</a></p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

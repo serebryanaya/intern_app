@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница :: UpGrade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <!-- Лого -->
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-1 col-sm-6 col-sm-offset-1">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'img/Frame.svg' %}" class="rounded float-left" alt="UpGrade">
+                    </a>
+                    <h1 class="header text-left">
+                    <!-- <strong> UpGrade </strong> -->
+                    <span> Новый уровень знаний</span>
+                    </h1>
+				</div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>>

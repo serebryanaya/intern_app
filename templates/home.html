@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>HOMEPAGE</h3>
+
+{% if user.is_authenticated %}
+    <span>Привет, {{request.user}} !</span>
+    {% if "student" in groups %}
+        <span><a href="{% url 'student_page' %}">Кабинет студента</a></span>
+    {% elif "employer" in groups %}
+        <span><a href="{% url 'employer_page' %}">Кабинет работодателя</a></span>
+    {% elif "university" in groups %}
+        <span><a href="{% url 'university_page' %}">Кабинет университета</a></span>
+    {% endif %}
+    <span><a href="{% url 'logout' %}">Выйти</a></span>
+{% else %}
+    <p><a href="{% url 'register' %}">Зарегистрируйся, как студент, работодатель или университет</a></p>
+    <p><a href="{% url 'register_employer' %}">Зарегистрируйся, работодатель</a></p>
+    <p><a href="{% url 'register_university' %}">Зарегистрируйся, университет</a></p>
+    <p><a href="{% url 'login' %}">Войти</a></p>
+{% endif %}
+{% endblock %}
