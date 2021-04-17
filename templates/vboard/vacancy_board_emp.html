@@ -1,21 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Доска моих стажировок</h1>
 
 <button><a href="{% url 'employer_page' %}">Назад</a></button>
 
 {% for v in vacancies %}
 
-<div>
-    <h2>{{ v.title }}</h2>
-    <h3>{{ v.owner.name_org }}</h3>
-    <p>{{ v.content }}</p>
-    <h4>Навыки:</h3>
+<ul>
+    <li>
+        <h3><p>{{ v.title }}</p></h3>
+        <h4><p>{{ v.owner.name_org }}</p></h4>
+        <p>{{ v.content }}</p>
+        <p>Навыки:</p>
         {% for sk in v.skills.all %}
-            <p>{{ sk.name }}</p>
+            <ul>
+                <li>{{ sk.name }}</li>
+            </ul>
+            <p></p>
         {% endfor %}
-    
-</div>
+    </li>
+</ul>
 
 {% endfor %}
 

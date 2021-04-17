@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>vacan Board</h1>
+<h1>Доска вакансий</h1>
 
 {% for v in vacancies %}
     <ul>
-        <h2><p>{{ v.title }}</p></h2>
-        <h3><p>{{v.owner}}</p></h3>
+        <li>
+            <h2><p>{{ v.title }}</p></h2>
+        <h3>Компания: <p>{{v.owner}}</p></h3>
         {% for skill in v.skills.all %}
-            <li>{{skill.name}}</li>
+            <ul>
+                <li>{{skill.name}}</li>
+            </ul>    
         {% endfor %}
         <p>{{v.content}}</p>
         <p>{{v.publisher}}</p>
+        </li>  
     </ul>
 {% endfor %}
 

@@ -2,24 +2,28 @@
 
 {% block content %}
 
-<h3>ЛК СТУДЕНТ!!!</h3>
-<span><a href="{% url 'home' %}">Домашняя страница</a></span>
-<span><a href="{% url 'vacancy_board_stud' %}">Найти стажировку</a></span>
-<span><a href="{% url 'logout' %}">Выйти</a></span>
+<h3>ЛК СТУДЕНТ</h3>
 
-<p>Личные данные</p>
 
 {% for s in student %}
+<nav>
+    <button><a href="{% url 'home' %}">Домашняя страница</a></button>
+    <button><a href="{% url 'stud_detail' s.id %}">Личные данные</a></button>
+    <button><a href="{% url 'vacancy_board_stud' %}">Найти стажировку</a></button>
+    <button><a href="{% url 'logout' %}">Выйти</a></button>
+</nav>
 
-<a href="{% url 'stud_detail' s.id %}">Личные данные</a>
-<span>Логин: {{ s.name }}</span>
-<span>ФИО: {{ s.initials }}</span>
-<span>Телефон: {{ s.phone }}</span>
-<span>О себе: {{ s.about }}</span>
-<span>Скиллы:</span>
-    {% for sk in s.my_skill.all %}
-        {{ sk.name }}
-    {% endfor %}
+<ul>
+    <li>Логин: <p>{{ s.name }}</p></li>
+    <li>ФИО: <p>{{ s.initials }}</p></li>
+    <li>Телефон: <p>{{ s.phone }}</p></li>
+    <li>О себе: <p>{{ s.about }}</p></li>
+    <li>Скиллы:
+        {% for sk in s.my_skill.all %}
+            <ul>{{ sk.name }}</ul>
+        {% endfor %}
+    </li>
+</ul>
 {% endfor %}
 
 
